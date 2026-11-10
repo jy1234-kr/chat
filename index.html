@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>chat</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./config.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>chat</h1>
+      <div class="status"><span id="connection" class="status-dot"></span><span id="online">연결 중</span></div>
+    </header>
+
+    <section id="name-row" class="name-row" hidden>
+      <label for="nickname">닉네임</label>
+      <input id="nickname" maxlength="20" autocomplete="nickname" placeholder="닉네임 입력">
+      <button id="save-name" type="button">확인</button>
+    </section>
+
+    <section id="messages" class="messages" aria-live="polite"></section>
+
+    <form id="send-form" class="composer">
+      <input id="message" maxlength="2000" autocomplete="off" placeholder="메시지 입력" aria-label="메시지 입력" disabled>
+      <button id="send" type="submit" disabled>전송</button>
+    </form>
+
+    <footer class="bottom">
+      <button id="admin-open" class="text-button" type="button">관리자</button>
+      <span id="notice" role="status"></span>
+    </footer>
+
+    <section id="admin-panel" class="admin-panel" hidden>
+      <div class="admin-head">
+        <strong>관리자</strong>
+        <button id="admin-close" class="text-button" type="button">닫기</button>
+      </div>
+      <div id="admin-login">
+        <form id="login-form">
+          <input id="admin-password" type="password" autocomplete="current-password" placeholder="관리자 비밀번호" required>
+          <button type="submit">로그인</button>
+        </form>
+      </div>
+      <div id="admin-actions" hidden>
+        <p>채팅 기록을 모두 삭제합니다.</p>
+        <button id="reset-chat" class="danger" type="button">채팅 초기화</button>
+        <button id="admin-logout" class="text-button" type="button">로그아웃</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
